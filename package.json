@@ -8,13 +8,15 @@
     "stylelint": "stylelint 'themes/**/*.scss'",
     "stylelint:fix": "pnpm stylelint --fix",
     "prettier:check": "prettier --check .",
-    "prettier:fix": "prettier --write ."
+    "prettier:fix": "prettier --write .",
+    "debug:server": "pnpm build && marp --theme-set ./dist/themes --server ./debug"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.24.0",
   "devDependencies": {
+    "@marp-team/marp-cli": "^4.2.3",
     "prettier": "^3.7.4",
     "sass": "^1.96.0",
     "stylelint": "^16.26.1",
