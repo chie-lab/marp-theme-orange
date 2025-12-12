@@ -3,8 +3,11 @@
  * @auto-scaling true
 */
 
+/* stylelint-disable */
 @import url("default");
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+/* stylelint-enable */
+
+@import 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap';
 
 section {
     font-family: 'Noto Sans JP', serif;
