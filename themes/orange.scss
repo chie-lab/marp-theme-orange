@@ -1,3 +1,6 @@
+@use "color" as color;
+@use "size" as size;
+
 /*!
  * @theme orange
  * @auto-scaling true
@@ -9,31 +12,21 @@
 
 @import "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap";
 
-:root {
-  --font-family: "Noto Sans JP", sans-serif;
-
-  // sizing
-  --size-padding-outer: 24px;
-  --size-padding-inner: 48px;
-
-  // color
-  --color-primary: #ff6602;
-  --color-text-base: #000000d1;
-}
+$default-font-family: "Noto Sans JP", sans-serif;
 
 section {
-  font-family: var(--font-family);
+  font-family: $default-font-family;
 
   &.cover {
-    background: var(--color-primary);
-    padding: calc(var(--size-padding-outer) + var(--size-padding-inner));
+    background: color.$primary;
+    padding: calc(size.$padding-outer + size.$padding-inner);
 
     &::before {
       content: "";
       position: absolute;
-      width: calc(100% - (var(--size-padding-outer) * 2));
-      height: calc(100% - (var(--size-padding-outer) * 2));
-      inset: var(--size-padding-outer);
+      width: calc(100% - (size.$padding-outer * 2));
+      height: calc(100% - (size.$padding-outer * 2));
+      inset: size.$padding-outer;
       background: white;
       border-radius: 16px;
       box-shadow:
@@ -56,7 +49,7 @@ section {
 
     h1 {
       font-weight: bold;
-      color: var(--color-text-base);
+      color: color.$text-base;
     }
   }
 }
