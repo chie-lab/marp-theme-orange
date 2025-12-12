@@ -3,5 +3,6 @@
   "editor.defaultFormatter": "prettier.prettier-vscode",
   "[scss]": {
     "editor.defaultFormatter": "prettier.prettier-vscode"
-  }
+  },
+  "markdown.marp.themes": ["./dist/themes/orange.css"]
 }

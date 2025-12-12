@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "sass themes:dist --style=compressed --no-source-map",
+    "build": "sass themes:dist/themes --style=compressed --no-source-map",
     "stylelint": "stylelint 'themes/**/*.scss'",
     "stylelint:fix": "pnpm stylelint --fix",
     "prettier:check": "prettier --check .",
