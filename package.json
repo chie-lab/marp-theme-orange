@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "sass themes:dist/themes --style=compressed --no-source-map",
-    "build:watch": "sass themes:dist/themes --style=compressed --no-source-map --watch",
+    "build:watch": "pnpm build --watch",
     "stylelint": "stylelint 'themes/**/*.scss'",
     "stylelint:fix": "pnpm stylelint --fix",
     "prettier:check": "prettier --check .",
