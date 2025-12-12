@@ -7,8 +7,56 @@
 @import url("default");
 /* stylelint-enable */
 
-@import "https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap";
+
+:root {
+  --font-family: "Noto Sans JP", sans-serif;
+
+  // sizing
+  --size-padding-outer: 24px;
+  --size-padding-inner: 48px;
+
+  // color
+  --color-primary: #ff6602;
+  --color-text-base: #000000d1;
+}
 
 section {
-  font-family: "Noto Sans JP", serif;
+  font-family: var(--font-family);
+
+  &.cover {
+    background: var(--color-primary);
+    padding: calc(var(--size-padding-outer) + var(--size-padding-inner));
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: calc(100% - (var(--size-padding-outer) * 2));
+      height: calc(100% - (var(--size-padding-outer) * 2));
+      inset: var(--size-padding-outer);
+      background: white;
+      border-radius: 16px;
+      box-shadow:
+        0 4px 4px rgb(0 0 0 / 10%),
+        0 1px 6px rgb(0 0 0 / 5%),
+        0 8px 8px rgb(0 0 0 / 10%),
+        0 16px 16px rgb(0 0 0 / 10%),
+        8px 32px 32px rgb(0 0 0 / 15%),
+        8px 64px 64px rgb(0 0 0 / 15%);
+      z-index: 0;
+    }
+
+    h1,
+    h2,
+    p,
+    img {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-weight: bold;
+      color: var(--color-text-base);
+    }
+  }
 }
