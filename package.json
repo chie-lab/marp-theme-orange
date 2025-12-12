@@ -4,13 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "sass themes:dist --style=compressed --no-source-map"
+    "build": "sass themes:dist --style=compressed --no-source-map",
+    "stylelint": "stylelint 'themes/**/*.scss'",
+    "stylelint:fix": "pnpm stylelint --fix"
+
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.24.0",
   "devDependencies": {
-    "sass": "^1.96.0"
+    "sass": "^1.96.0",
+    "stylelint": "^16.26.1",
+    "stylelint-config-standard-scss": "^16.0.0"
   }
 }
