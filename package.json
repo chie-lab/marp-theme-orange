@@ -10,7 +10,9 @@
     "stylelint:fix": "pnpm stylelint --fix",
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write .",
-    "debug:server": "pnpm build && marp --theme-set ./dist/themes --server ./debug"
+    "marp:watch": "pnpm build && marp --theme-set ./dist/themes --watch  -I ./slides --output ./dist",
+    "generate:ogp": "pnpm build && marp --theme-set ./dist/themes --image png --allow-local-files -I ./slides --output ./dist",
+    "generate:html": "pnpm build && pnpm generate:ogp && marp --theme-set ./dist/themes --html -I ./slides --output ./dist"
   },
   "keywords": [],
   "author": "",

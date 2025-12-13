@@ -18,8 +18,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build slides
-        run: pnpm build
+      - name: Build project
+        run: pnpm generate:html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
