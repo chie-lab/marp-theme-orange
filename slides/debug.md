@@ -4,12 +4,13 @@ theme: orange
 paginate: true
 title: デバッグ用スライド
 description: orange テーマのデバッグ用スライドです
+image: https://chie-lab.github.io/marp-theme-orange/debug.png
 ---
 
 <!-- _class: cover -->
 <!-- _paginate: false -->
 
-# タイトルはここに入力します
+# デバッグ用スライド
 
 サブタイトル等はここに入力します
 
