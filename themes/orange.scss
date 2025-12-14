@@ -137,6 +137,7 @@ h6 {
 a {
   color: color.$link-blue;
   text-decoration: none;
+
   &:hover {
     text-decoration: underline;
   }
@@ -180,13 +181,14 @@ section {
   justify-content: start;
 
   &.no-header {
-    padding: 30px 60px 0 60px;
+    padding: 30px 60px 0;
+
     &::after {
       color: color.$text-base;
     }
   }
 
-  > h1:first-child:not(.no-header > h1):not(.cover > h1):not(.section > h1) {
+  > h1:first-child:not(.no-header > h1, .cover > h1, .section > h1) {
     background-color: color.$primary;
     color: color.$text-white;
     position: absolute;
@@ -202,7 +204,7 @@ section {
 
   &::after {
     position: absolute;
-    top: 0px;
+    top: 0;
     right: 30px;
     height: 80px;
     display: flex;
