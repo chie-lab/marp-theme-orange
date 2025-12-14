@@ -1,5 +1,6 @@
 @use "color" as color;
 @use "size" as size;
+@use "font" as font;
 
 /*!
  * @theme orange
@@ -7,17 +8,212 @@
 */
 
 /* stylelint-disable */
+// import marp default theme
 @import url("default");
 /* stylelint-enable */
 
 @import "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap";
 
-$default-font-family: "Noto Sans JP", sans-serif;
+h1 {
+  color: color.$text-base;
+  font-size: font.$font-size-title;
+  line-height: font.$line-height-tight;
+  font-weight: 600;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding-bottom: 0;
+}
+
+h2 {
+  color: color.$text-base;
+  font-size: font.$font-size-large;
+  line-height: font.$line-height-tight;
+  font-weight: 600;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding-bottom: 0;
+}
+
+h3 {
+  color: color.$text-base;
+  font-size: font.$font-size-medium;
+  line-height: font.$line-height-normal;
+  font-weight: 600;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding-bottom: 0;
+}
+
+h4 {
+  color: color.$text-base;
+  font-size: font.$font-size-body;
+  line-height: font.$line-height-normal;
+  font-weight: 600;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding-bottom: 0;
+}
+
+h5 {
+  color: color.$text-base;
+  font-size: font.$font-size-small;
+  line-height: font.$line-height-normal;
+  font-weight: 600;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding-bottom: 0;
+}
+
+h6 {
+  color: color.$text-base;
+  font-size: font.$font-size-caption;
+  line-height: font.$line-height-normal;
+  font-weight: 600;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding-bottom: 0;
+}
+
+p {
+  color: color.$text-base;
+  font-size: font.$font-size-body;
+  line-height: font.$line-height-loose;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+/* リスト */
+ul,
+ol {
+  font-size: font.$font-size-body;
+  color: color.$text-base;
+  line-height: font.$line-height-loose;
+  padding-left: 4px;
+  margin-top: 0;
+  margin-left: 22px;
+  margin-bottom: 8px;
+}
+
+ol {
+  margin-left: 32px;
+}
+
+li {
+  padding-top: 6px;
+
+  ul,
+  ol {
+    margin-left: 0;
+    padding-left: 32px;
+    margin-top: 0;
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  & + li {
+    margin-top: 0;
+  }
+
+  &::marker {
+    margin-left: 6px;
+  }
+}
+
+/* 見出し直後のリストのマージンを削除 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  & + ul,
+  & + ol {
+    margin-top: 0;
+  }
+}
+
+a {
+  color: color.$link-blue;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* 表 */
+table {
+  font-size: 20px;
+  margin-bottom: 1rem;
+  color: color.$text-base;
+  background-color: color.$background;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  thead {
+    th {
+      background-color: color.$primary;
+      color: color.$text-white;
+      font-weight: 400;
+      border: 1.5px solid color.$divider;
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        color: color.$text-base;
+        background-color: color.$background;
+        border: 1.5px solid color.$divider;
+      }
+    }
+  }
+}
 
 section {
-  font-family: $default-font-family;
+  background-color: color.$background;
+  font-family: font.$font-family;
+  padding: 100px size.$padding-inner 0 size.$padding-inner;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+
+  &.no-header {
+    padding: 30px 60px 0 60px;
+    &::after {
+      color: color.$text-base;
+    }
+  }
+
+  > h1:first-child:not(.no-header > h1):not(.cover > h1):not(.section > h1) {
+    background-color: color.$primary;
+    color: color.$text-white;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    margin: 0;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0px;
+    right: 30px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    color: color.$text-white;
+    margin: 0;
+  }
 
   &.cover {
+    justify-content: center;
     background: color.$primary;
     padding: calc(size.$padding-outer + size.$padding-inner);
 
@@ -27,7 +223,7 @@ section {
       width: calc(100% - (size.$padding-outer * 2));
       height: calc(100% - (size.$padding-outer * 2));
       inset: size.$padding-outer;
-      background: white;
+      background: color.$background;
       border-radius: 16px;
       box-shadow:
         0 4px 4px rgb(0 0 0 / 4%),
@@ -46,10 +242,155 @@ section {
       position: relative;
       z-index: 1;
     }
+  }
+
+  &.section {
+    background-color: color.$primary;
+    padding: 0 100px;
+    justify-content: center;
 
     h1 {
-      font-weight: bold;
-      color: color.$text-base;
+      position: static;
+      color: color.$text-white;
+    }
+
+    ::after {
+      display: none;
+    }
+
+    > * {
+      margin: 0;
+      position: static;
+      color: color.$text-white;
+    }
+  }
+
+  &.image {
+    > p:has(img) {
+      height: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+
+  &.content-image {
+    > p:has(img) {
+      height: fit-content;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-around;
+    }
+  }
+
+  &.content-image-right {
+    padding-right: 50%;
+
+    &.content-30 {
+      padding-right: 70%;
+    }
+
+    &.content-40 {
+      padding-right: 60%;
+    }
+
+    &.content-60 {
+      padding-right: 40%;
+    }
+
+    &.content-70 {
+      padding-right: 30%;
+    }
+
+    &.content-80 {
+      padding-right: 20%;
+    }
+
+    p:has(img) {
+      height: calc(100% - 80px);
+      position: absolute;
+      top: 80px;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      margin: 0;
+      padding-left: 16px;
+      padding-right: 20px;
+      background-color: color.$background-accent;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &.content-image-left {
+    padding-left: 50%;
+
+    &.content-30 {
+      padding-left: 70%;
+    }
+
+    &.content-40 {
+      padding-left: 60%;
+    }
+
+    &.content-60 {
+      padding-left: 40%;
+    }
+
+    &.content-70 {
+      padding-left: 30%;
+    }
+
+    &.content-80 {
+      padding-left: 20%;
+    }
+
+    p:has(img) {
+      height: calc(100% - 80px);
+      position: absolute;
+      top: 80px;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      margin: 0;
+      padding-left: 20px;
+      padding-right: 16px;
+      background-color: color.$background-accent;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &.all-text-center,
+  &.h1-text-center h1,
+  &.h2-text-center h2,
+  &.h3-text-center h3,
+  &.h4-text-center h4,
+  &.h5-text-center h5,
+  &.h6-text-center h6,
+  &.text-center p {
+    text-align: center;
+  }
+
+  &.align-center {
+    justify-content: center;
+  }
+
+  &.column-layout {
+    flex-direction: row;
+    gap: 16px;
+    justify-content: space-around;
+
+    .column {
+      width: 100%;
     }
   }
 }
