@@ -1,8 +1,8 @@
 ---
 marp: true
 theme: orange
-title: カバースライド
-description: README.md に貼るためのカバー画像生成用スライド
+title: カバー画像生成用スライド
+description: カバー画像生成用スライド
 image: https://chie-lab.github.io/marp-theme-orange/cover.png
 ---
 
